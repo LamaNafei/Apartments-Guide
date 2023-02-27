@@ -1,0 +1,144 @@
+/*Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+*{
+  font-family: 'Poppins', sans-serif;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+  scroll-padding-top:4rem;
+  list-style:none;
+  text-decoration:none;
+}
+  /*variables*/
+:root{
+   --main-color:#2288ff;
+   --second-color:#192f6a;
+   --text-color:#314862;
+   --bg-color:#fff; 
+/* Box Shadow */
+   --box-shadow: 2px 2px 18px rgb(14 52 54 / 15%);
+}
+img {
+	width: 100%;
+}
+body {
+	color: var(--text-color) ;
+}
+section {
+	padding: 4.5rem 0 3rem;
+}
+.container {
+	max-width: 1068px;
+	margin-left: auto;
+	margin-right: auto;
+}
+header{
+	display: block;
+	width: 100%;
+	background: var(--bg-color);
+	position: fixed;
+	top : 0;
+	left: 0;
+	z-index: 100;
+}
+.nav {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 20px 35px;
+}
+.logo{
+	display: flex;
+	align-items: center;
+	column-gap: 0.5rem;
+	font-size: 1rem;
+	font-weight: 700;
+	color: var(--text-color);
+	text-transform: uppercase;
+}
+.logo .bx {
+	font-size: 24px;
+	color: var(--main-color) ;
+}
+.navbar{
+	display: flex;
+}
+.navbar a {
+	padding: 8px 17px;
+	color: var(--text-color) ;
+	font-size: 1rem;
+	text-transform: uppercase;
+	font-weight: 500;
+}
+.navbar a:hover {
+	color: var(--main-color) ;
+}
+#menu-icon {
+font-size: 24px;
+cursor: pointer;
+display: none;
+}
+#menu {
+display: none;
+}
+.btn {
+	padding: 8px 22px;
+	background: var(--main-color);
+	color: var(--bg-color) ;
+	border-radius: 5rem;
+}
+.btn:hover {
+	background: #3492fd;   
+}
+body{
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	background-size : cover;
+	background-position: center;
+}
+
+.sign-up-form{
+	width: 300px;
+	box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
+	background : #fff;
+	padding: 20px;
+	margin: 8% auto 0;
+	text-align: center;	
+}
+.sign-up-form h1{
+	color: #1c8adb;
+	margin-bottom : 30px;
+}
+
+.input-box{
+	border-radius: 20px;
+	padding: 10px;
+	margin: 10px 0;
+	width: 100%;
+	border: 1px solid #999;
+	outline: none;
+}
+button{
+	color: #fff;
+	width: 100%;
+	padding: 10px;
+	border-radius: 20px;
+	font-size: 15px;
+	margin: 10px 0;
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
+.signup-btn{
+	background-color : #1c8adb;
+}
+
+
+a{text-decoration : none}
+
+Kr{
+	margin-top: 20px;
+	width: 80;
+	}

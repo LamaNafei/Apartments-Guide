@@ -1,0 +1,42 @@
+<html>
+<head>
+	<link rel="icon" href="https://www.rawshorts.com/freeicons/wp-content/uploads/2017/01/blue_repicthousebase_1484336386-1.png" type="image/x-icon">
+	<title> Add Apartment Form</title>
+	<link rel="stylesheet" href="/assets/addStyle.css">
+</head>
+<body>
+	<header> 
+		<div class="nav container">
+		    <!--logo-->
+			<a href="/" class="logo"><i class='bx bx-home'></i>Apartment Guide</a>
+			<!--Menu Icon-->
+			<input type="checkbox" name="" id="menu">
+			<label for="menu"<i class='bx bx-menu' id="menu-icon" ></i></label>
+			<!--Nav List-->
+			<ul class="navbar">
+				<li><a href="/">Home</a> </li>
+				<li><a href="/apartmentsView">Apartments</a></li>	
+			</ul>
+		</div>
+	</header> 
+	<div class= "add-apartment-form">
+	<h1>Add Apartment</h1>
+	<form method="post" action="addApartment">
+	<select name="apartmentStatus" class="input-box">
+		<option value="1">Avilable</option>
+		<option value="2">Unavilable</option>
+	</select>
+	<input type="text" class="input-box" placeholder="price" name="price"required>
+	<input type="number" class="input-box" placeholder="number of room" name="numOfRooms"required>
+	<input type="number" class="input-box" placeholder="number of bathroom" name="numOfBathroom"required>
+	<input type="number" class="input-box" placeholder="area" name="area"required>
+	<input type="text" class="input-box" placeholder="location" name="location"required>
+	<input type="text" class="input-box" placeholder="Contact Number" name="contactNum"required>
+	<input type="text" class="input-box" placeholder="description" name="description">
+	<input type="text" class="input-box" placeholder="apartment Picture" name="apartmentPicture"required>
+<hr>
+	<button type= "submit" class="add-btn">Add Apartment</button>
+	</form>
+	</div>
+	</body>
+ </html>

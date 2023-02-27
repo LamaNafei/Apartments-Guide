@@ -1,0 +1,84 @@
+<html>
+<head>
+	<link rel="icon" href="https://www.rawshorts.com/freeicons/wp-content/uploads/2017/01/blue_repicthousebase_1484336386-1.png" type="image/x-icon">
+	<title> Login Form</title>
+	<link rel="stylesheet" href="/assets/logInStyle.css">
+</head>
+<body>
+	<header> 
+		<div class="nav container">
+		    <!--logo-->
+			<a href="/"class="logo"><i class='bx bx-home'></i>Apartment Guide</a>
+			<!--Menu Icon-->
+			<input type="checkbox" name="" id="menu">
+			<label for="menu"<i class='bx bx-menu' id="menu-icon" ></i></label>
+			<!--Nav List-->
+			<ul class="navbar">
+				<li>Apartments</li>
+			</ul>
+		</div>
+	</header> 
+	<div class= "sign-up-form">
+	<h1>Login</h1>
+	<form method="post" action="/logIn">
+	<input type="email" class="input-box" placeholder="Your Email" name="email" id="email" required>
+	<input type="password" class="input-box" placeholder="Your Password" name="password" id="password" required>
+	<button type= "submit" class="signup-btn" id="submit">Login</button>
+	<hr>
+	</form>
+	<p style="color:#ff0000; font-size: 12;"><%= params[:message] %></p>
+	<p style="color:#1c8adb; font-family: 'Times New Roman'; font-weight: bold;">OR</p>
+	<a href="/signUp">
+		<button type="submit" class="signup-btn">Sign Up</button>
+	</a>
+	</div>
+
+	<script>
+		subitBtn = document.getElementById("submit");
+		//subitBtn.addEventListener('click', login);
+		let  user_Email = document.getElementById("email").value,
+				user_Password = document.getElementById("password").value;
+
+		async function login() {
+			console.log("hi from the frontenddddddddd")
+			let  user_Email = document.getElementById("email").value,
+				user_Password = document.getElementById("password").value,
+				user_Type =1;
+
+
+			// IsValidData(user_Email,user_Password)
+			// if(!IsValidData(user_Email,user_Password))
+			// 	return;
+
+			let user = {
+				email:"",
+				password:"",
+				userType:""
+			};
+
+			user.email = user_Email
+			user.password = user_Password
+			user.userType = user_Type
+					
+			try {
+				const response = await fetch("/login", {
+					"method": "post",
+					"headers": {
+						"Content-Type": "application/json"
+					},
+					"body": JSON.stringify(user)
+				})
+				console.log(response, 'resposeeeeee')
+				// if(response.status == 409){
+				//     mailExistMsg.style.display = "block"
+				// }
+			} catch (e) {
+				console.log("error", e.message)
+			}
+			
+		}
+
+
+	</script>
+	</body>
+ </html>

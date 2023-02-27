@@ -1,0 +1,39 @@
+<html>
+<head>
+	<link rel="icon" href="https://www.rawshorts.com/freeicons/wp-content/uploads/2017/01/blue_repicthousebase_1484336386-1.png" type="image/x-icon">
+	<title> Sign Up Form</title>
+	<link rel="stylesheet" href="/assets/signUpStyle.css">
+</head>
+<body>
+	<header> 
+		<div class="nav container">
+		    <!--logo-->
+			<a href="/"class="logo"><i class='bx bx-home'></i>Apartment Guide</a>
+			<!--Menu Icon-->
+			<input type="checkbox" name="" id="menu">
+			<label for="menu"><i class='bx bx-menu' id="menu-icon" ></i></label>
+			<!--Nav List-->
+			<ul class="navbar">
+			<li>Apartments</li>
+			</ul>
+		</div>
+	</header> 
+	<div class= "sign-up-form">
+	<h1> Sign Up</h1>
+	<form method="post" action="/signUp">
+	<select name="userType" class="input-box">
+		<option value="1">Landlord</option>
+		<option value="2">Customer</option>
+	</select>
+  <input type="email" class="input-box" placeholder="Your Email" name="email" id="email" required>
+  <input type="password" class="input-box" placeholder="Your Password" name="password" id="password" minlength='8' required>
+  <button type="submit" class="signup-btn">Sign up</button>
+</form>
+	<p style="color:#ff0000; font-size: 12;"><%= params[:message] %></p>
+	<p style="color:#1c8adb; font-family: 'Times New Roman'; font-weight: bold;">OR</p>
+	<a href="/logIn">
+		<button type="submit" class="signup-btn">Login</button>
+	</a>
+	</div>
+	</body>
+ </html>
