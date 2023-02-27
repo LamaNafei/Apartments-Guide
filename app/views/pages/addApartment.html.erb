@@ -21,7 +21,7 @@
 	</header> 
 	<div class= "add-apartment-form">
 	<h1>Add Apartment</h1>
-	<form method="post" action="addApartment">
+	<form method="post" action="addApartment" enctype="multipart/form-data">
 	<select name="apartmentStatus" class="input-box">
 		<option value="1">Avilable</option>
 		<option value="2">Unavilable</option>
@@ -33,7 +33,7 @@
 	<input type="text" class="input-box" placeholder="location" name="location"required>
 	<input type="text" class="input-box" placeholder="Contact Number" name="contactNum"required>
 	<input type="text" class="input-box" placeholder="description" name="description">
-	<input type="text" class="input-box" placeholder="apartment Picture" name="apartmentPicture"required>
+	<input type="file" class="input-box" placeholder="apartment Picture" name="apartmentPicture"required>
 <hr>
 	<button type= "submit" class="add-btn">Add Apartment</button>
 	</form>
