@@ -59,6 +59,7 @@ class PagesController < ApplicationController
   end
   
   def addApartment
+    pictureNames = []
     if request.post?
       price = params[:price].to_s
       status = params[:apartmentStatus].to_s
@@ -68,13 +69,16 @@ class PagesController < ApplicationController
       location = params[:location].to_s
       contactNum = params[:contactNum].to_s
       description = params[:description].to_s
-      apartmentPicture = params[:apartmentPicture]
+      apartmentPicture = params[:apartmentPicture].to_a
       puts apartmentPicture
-      savePath = Rails.root.join('app', 'assets', 'images',apartmentPicture.original_filename)
-      File.open(savePath, 'wb') do |file|
-        file.write(apartmentPicture.read)
+      apartmentPicture.each do |pic|
+        savePath = Rails.root.join('app', 'assets', 'images',pic.original_filename)
+        File.open(savePath, 'wb') do |file|
+          file.write(pic.read)
+        end
+        pictureNames.push(pic.original_filename)
       end
-      ActiveRecord::Base.connection.execute("INSERT INTO Apartments (email, status, price, numOfRooms, numOfBathrooms, area, location, contacts, description, picture) VALUES ('#{session[:email]}', '#{status}', '#{price}', #{numOfRooms}, #{numOfBathroom}, #{area}, '#{location}', '#{contactNum}', '#{description}', '#{apartmentPicture.original_filename}')")
+      ActiveRecord::Base.connection.execute("INSERT INTO Apartments (email, status, price, numOfRooms, numOfBathrooms, area, location, contacts, description, picture) VALUES ('#{session[:email]}', '#{status}', '#{price}', #{numOfRooms}, #{numOfBathroom}, #{area}, '#{location}', '#{contactNum}', '#{description}', '#{pictureNames}')")
       redirect_to "/apartmentsView"
       return
     end
@@ -95,6 +99,7 @@ class PagesController < ApplicationController
   def details
     apartmentID = params[:apartmentID].to_i
     @apartment = ActiveRecord::Base.connection.execute("SELECT * FROM Apartments WHERE apartmentID = #{apartmentID}")[0]
+    @picturesNames = @apartment['picture'].delete('[]" ').split(',')
     render 'pages/details'
   end
 
