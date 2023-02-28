@@ -1,5 +1,7 @@
 class PagesController < ApplicationController
   def home
+    @session = session[:email].empty?
+    puts session[:email]
     render 'pages/home'
   end
 
@@ -94,5 +96,12 @@ class PagesController < ApplicationController
     apartmentID = params[:apartmentID].to_i
     @apartment = ActiveRecord::Base.connection.execute("SELECT * FROM Apartments WHERE apartmentID = #{apartmentID}")[0]
     render 'pages/details'
+  end
+
+  def logOut
+    session[:email] = ""
+    session[:userType] = nil
+    redirect_to '/'
+    return
   end
 end

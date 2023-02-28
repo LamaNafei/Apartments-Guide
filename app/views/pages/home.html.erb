@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 	<link rel="icon" href="https://www.rawshorts.com/freeicons/wp-content/uploads/2017/01/blue_repicthousebase_1484336386-1.png" type="image/x-icon">
-    <link rel="stylesheet" href="/assets/homeStyle.css">  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" />0
+	<link rel="stylesheet" href="/assets/homeStyle.css">  
 	<meta charest="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,20 +24,31 @@
 			<!--Nav List-->
 			<ul class="navbar">
 				<li><a href="">Home</a> </li>
-				 <!--<li><a href="apartments_view">Apartments</a></li> -->
+				<% unless @session %>
+					<li><a href="/apartmentsView">Apartments</a></li>
+				<% end %>
 				<li><a href="#about">About Us</a></li>
-				
+
 			</ul>
 
 			<!--Log In Button-->
-			<a href="/logIn" class="btn">Log In </a>
+			<% if @session %>
+      			<a href="/logIn" class="btn">Log In </a>						
+      		<% end %>
 		</div>
 	</header> 
 	<!-- Home -->
 	<section class="home container" id="home">
 			<div class="home-text">
 			<h1 style="color:white;">Find Your Next <br>Perfect Place To <br>Live. </h1>
-			<a href="/signUp" class="btn">Sign Up</a>
+			<% if @session %>
+				<a href="/signUp" class="btn">Sign Up</a>
+			<%# <% else %> 
+				<%# <form style= "display: flex; align-items: center;"> %>
+  					<%# <input type="text" placeholder="Search..." style="border: none; padding: 8px; border-radius: 10px; box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1); flex: 1;"> %>
+  					<%# <button type="submit" style="background-color: transparent; border: none; padding: 0; margin-left: 8px; cursor: pointer;" class="icon-button"><i class="fas fa-search" style="font-size: 20px; color: #555;" ></i></button> %>
+				<%# </form> %>
+			<% end %>
 		</div>
 	</section>
 	<!-- About -->

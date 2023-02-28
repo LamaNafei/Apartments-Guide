@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post '/addApartment', to: 'pages#addApartment'
   get '/apartmentsView', to: 'pages#apartmentsView'
   get '/details', to: 'pages#details'
+  get '/logOut', to: 'pages#logOut'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
