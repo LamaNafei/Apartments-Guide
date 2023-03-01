@@ -26,14 +26,33 @@
 		<option value="1">Avilable</option>
 		<option value="2">Unavilable</option>
 	</select>
+	<br>
+	<label class="label-text">price</label>
 	<input type="text" class="input-box" placeholder="price" name="price"required>
-	<input type="number" class="input-box" placeholder="number of room" name="numOfRooms"required>
-	<input type="number" class="input-box" placeholder="number of bathroom" name="numOfBathroom"required>
-	<input type="number" class="input-box" placeholder="area" name="area"required>
+	<br>
+	<label class="label-text">Number Of Room</label>
+	<input type="number" class="input-box" placeholder="number of room" min= '0' name="numOfRooms"required>
+		<br>
+	<label class="label-text">Number Of Bathroom</label>
+	<input type="number" class="input-box" placeholder="number of bathroom" min='0' name="numOfBathroom"required>
+		<br>
+	<label class="label-text">Area</label>
+	<input type="number" class="input-box" placeholder="area" name="area" min='0' required>
+		<br>
+	<label class="label-text">Location</label>
 	<input type="text" class="input-box" placeholder="location" name="location"required>
+		<br>
+	<label class="label-text">Contact Number</label>
 	<input type="text" class="input-box" placeholder="Contact Number" name="contactNum"required>
+		<br>
+	<label class="label-text">Description</label>
 	<input type="text" class="input-box" placeholder="description" name="description">
-	<input type="file" class="input-box" placeholder="apartment Picture" name="apartmentPicture[]" multiple required>
+		<br>
+	<label class="label-text">Apartment Pictures</label>
+	<input type="file" class="input-box" placeholder="apartment Pictures" name="apartmentPictures[]" multiple required>
+		<br>
+	<label class="label-text">Apartment Main Picture</label>
+	<input type="file" class="input-box" placeholder="apartment main Picture" name="apartmentPicture" required>
 <hr>
 	<button type= "submit" class="add-btn">Add Apartment</button>
 	</form>

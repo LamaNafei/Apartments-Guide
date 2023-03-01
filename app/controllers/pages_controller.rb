@@ -69,7 +69,8 @@ class PagesController < ApplicationController
       location = params[:location].to_s
       contactNum = params[:contactNum].to_s
       description = params[:description].to_s
-      apartmentPicture = params[:apartmentPicture].to_a
+      apartmentPicture = params[:apartmentPictures].to_a
+      picture = params[:apartmentPicture]
       puts apartmentPicture
       apartmentPicture.each do |pic|
         savePath = Rails.root.join('app', 'assets', 'images',pic.original_filename)
@@ -78,6 +79,10 @@ class PagesController < ApplicationController
         end
         pictureNames.push(pic.original_filename)
       end
+      File.open(Rails.root.join('app', 'assets', 'images',picture.original_filename), 'wb') do |file|
+        file.write(picture.read)
+      end
+      session[:picture]  = picture.original_filename
       ActiveRecord::Base.connection.execute("INSERT INTO Apartments (email, status, price, numOfRooms, numOfBathrooms, area, location, contacts, description, picture) VALUES ('#{session[:email]}', '#{status}', '#{price}', #{numOfRooms}, #{numOfBathroom}, #{area}, '#{location}', '#{contactNum}', '#{description}', '#{pictureNames}')")
       redirect_to "/apartmentsView"
       return

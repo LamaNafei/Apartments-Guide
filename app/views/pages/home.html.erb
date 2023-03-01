@@ -33,7 +33,9 @@
 
 			<!--Log In Button-->
 			<% if @session %>
-      			<a href="/logIn" class="btn">Log In </a>						
+      			<a href="/logIn" class="btn">Log In </a>
+			<% else %>
+				<a href="/logOut" class="btn">Log Out </a>
       		<% end %>
 		</div>
 	</header> 
