@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def home
-    @session = session[:email].empty?
+    @session = session[:email] == nil
     puts session[:email]
     render 'pages/home'
   end
@@ -109,7 +109,7 @@ class PagesController < ApplicationController
   end
 
   def logOut
-    session[:email] = ""
+    session[:email] = nil
     session[:userType] = nil
     redirect_to '/'
     return
