@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
+  protect_from_forgery with: :null_session
   def home
-    @session = session[:email] == nil
+    @session = session[:email] == nil || session[:email].empty?
     puts session[:email]
     render 'pages/home'
   end
@@ -109,7 +110,7 @@ class PagesController < ApplicationController
   end
 
   def logOut
-    session[:email] = nil
+    session[:email] = ""
     session[:userType] = nil
     redirect_to '/'
     return
