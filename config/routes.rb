@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/apartmentsView', to: 'pages#apartmentsView'
   get '/details', to: 'pages#details'
   get '/logOut', to: 'pages#logOut'
+  get '/search', to: 'pages#search'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

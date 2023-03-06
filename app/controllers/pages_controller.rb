@@ -1,7 +1,8 @@
 class PagesController < ApplicationController
   def home
-    puts session[:email].empty?
     @session = session[:email] == nil || session[:email].empty?
+    @filter = params[:filter].to_s
+    @searchValue = params[:search].to_s
     render 'pages/home'
   end
 
@@ -113,5 +114,17 @@ class PagesController < ApplicationController
     session[:userType] = nil
     redirect_to '/'
     return
+  end
+
+  def search
+    filter = params[:filter].to_s
+    searchValue = params[:search].to_s
+    if filter == '*'
+      @apartments = ActiveRecord::Base.connection.execute("SELECT * FROM Apartments WHERE area || location || numOfRooms || numOfBathrooms || price LIKE '#{searchValue}';")
+    else
+      @apartments = ActiveRecord::Base.connection.execute("SELECT * FROM Apartments WHERE #{filter} = '#{searchValue}'")
+    end
+    # puts @apartments
+    render 'pages/search'
   end
 end
