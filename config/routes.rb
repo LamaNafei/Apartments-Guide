@@ -1,15 +1,16 @@
 Rails.application.routes.draw do
-  get '/', to: 'pages#home'
-  get '/logIn', to: 'pages#logIn'
-  post '/logIn', to: 'pages#logIn'
-  get '/signUp', to: 'pages#signUp'
-  post '/signUp', to: 'pages#signUp'
-  get '/addApartment', to: 'pages#addApartment'
-  post '/addApartment', to: 'pages#addApartment'
-  get '/apartmentsView', to: 'pages#apartmentsView'
-  get '/details', to: 'pages#details'
-  get '/logOut', to: 'pages#logOut'
-  get '/search', to: 'pages#search'
+  get '/', to: 'home#home'
+  post '/', to: 'home#home'
+  get '/logIn', to: 'auth#logIn'
+  post '/logIn', to: 'auth#logIn'
+  get '/signUp', to: 'auth#signUp'
+  post '/signUp', to: 'auth#signUp'
+  get '/addApartment', to: 'departments#addApartment'
+  post '/addApartment', to: 'departments#addApartment'
+  get '/apartmentsView', to: 'departments#apartmentsView'
+  get '/details', to: 'departments#details'
+  get '/logOut', to: 'auth#logOut'
+  get '/search', to: 'departments#search'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
