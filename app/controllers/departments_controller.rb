@@ -62,10 +62,10 @@ class DepartmentsController < ApplicationController
     searchValue = params[:search].to_s
     if filter == '*'
       @apartments = ActiveRecord::Base.connection.execute("SELECT * FROM Apartments WHERE area LIKE '#{searchValue}';")
-      @apartments.push(ActiveRecord::Base.connection.execute("SELECT * FROM Apartments WHERE LIKE location '#{searchValue}';"))
-      @apartments.push(ActiveRecord::Base.connection.execute("SELECT * FROM Apartments WHERE LIKE numOfRooms '#{searchValue}';"))
-      @apartments.push(ActiveRecord::Base.connection.execute("SELECT * FROM Apartments WHERE LIKE numOfBathrooms '#{searchValue}';"))
-      @apartments.push(ActiveRecord::Base.connection.execute("SELECT * FROM Apartments WHERE LIKE price '#{searchValue}';"))
+      @apartments | ActiveRecord::Base.connection.execute("SELECT * FROM Apartments WHERE location LIKE '#{searchValue}';")
+      @apartments | ActiveRecord::Base.connection.execute("SELECT * FROM Apartments WHERE numOfRooms LIKE '#{searchValue}';")
+      @apartments | ActiveRecord::Base.connection.execute("SELECT * FROM Apartments WHERE numOfBathrooms LIKE '#{searchValue}';")
+      @apartments | ActiveRecord::Base.connection.execute("SELECT * FROM Apartments WHERE price LIKE '#{searchValue}';")
     else
       @apartments = ActiveRecord::Base.connection.execute("SELECT * FROM Apartments WHERE #{filter} = '#{searchValue}'")
     end
