@@ -26,7 +26,6 @@ class DepartmentsController < ApplicationController
         file.write(picture.read)
       end
       session[:picture]  = picture.original_filename
-      #Insert new apartment data into the database with the apartment ID and email of the landlord who added it.
       ActiveRecord::Base.connection.execute("INSERT INTO Apartments (email, status, price, numOfRooms, numOfBathrooms, area, location, contacts, description, picture) VALUES ('#{session[:email]}', '#{status}', '#{price}', #{numOfRooms}, #{numOfBathroom}, #{area}, '#{location}', '#{contactNum}', '#{description}', '#{pictureNames}')")
       redirect_to "/apartmentsView"
       return
